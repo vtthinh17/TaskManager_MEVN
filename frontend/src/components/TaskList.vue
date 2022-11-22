@@ -4,25 +4,19 @@
             <tr>
                 <th>STT</th>
                 <th>Decriptions</th>
-                <th>Complete?</th>               
+                <th>Complete?</th>
+                <th>Delete?</th>               
             
             </tr>
         </thead>
-
-        <!-- <tbody v-for="(task, index) in tasks" :key="task.id" :class="{ active: index === activeIndex }"
-            @click="updateActiveIndex(index)">
-            <tr>
-                <td>{{ index + 1 }}</td>
-                <td>{{ task.description }}</td>
-                <td><input type="checkbox" name="isComplte" value="isComplete"></td>          
-            </tr>
-        </tbody> -->
 
         <tbody>
             <tr v-for="(task, index) in taskLists" :key="task.id">
                 <td>{{index + 1}}</td>
                 <td>{{task.description}}</td>
                 <td><input type="checkbox" :checked="task.isComplete" name="" id="">Done</td>
+                <!-- Form v-model:"this.task" -->
+                <td><button @click="deleteTask(task._id)">Xóa task</button></td>
             </tr>        
         </tbody>
         
@@ -51,6 +45,14 @@ export default{
     methods:{
         goToAddTask() {
             this.$router.push({ name: "task.add" });
+        },
+        async deleteTask(id) {
+            try {
+                console.log(id)
+                    // await TaskService.delete(this.task.id);
+                } catch (error) {
+                    console.log(error);
+                }
         },
         async getTask(id){
             this.taskLists = await TaskService.getByUserId(id);

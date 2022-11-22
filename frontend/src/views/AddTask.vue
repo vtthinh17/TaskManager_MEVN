@@ -3,7 +3,7 @@
        <h4>Thêm mới Task</h4>
        <AddTaskForm 
        :task="task" 
-       @submit:task="addTask" 
+       @submit:addTask="addTask" 
        />
        <p>{{ message }}</p>
    </div>

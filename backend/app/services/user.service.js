@@ -33,6 +33,10 @@ class UserService {
 		return await cursor.toArray();
 	}
 
+	async get(id) {
+        return (await this.api.get(`/${id}`)).data;
+    }
+	
 	async findByName(name){
 		return await this.find({
 			name: {$regex: new RegExp(name), $options: "i"}

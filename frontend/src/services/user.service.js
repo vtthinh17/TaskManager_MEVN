@@ -21,8 +21,5 @@ class UserService {
     async delete(id) {
         return (await this.api.delete(`/${id}`)).data;
     }
-    async addTask(id, data) {
-        return (await this.api.put(`/${id}`, data)).data;
-    }
 }
 export default new UserService();
