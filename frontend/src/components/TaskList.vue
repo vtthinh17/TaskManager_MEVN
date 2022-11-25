@@ -14,14 +14,13 @@
             <tr v-for="(task, index) in taskLists" :key="task.id">
                 <td>{{index + 1}}</td>
                 <td>{{task.description}}</td>
-                <td><input type="checkbox" :checked="task.isComplete" name="" id="" @click="completeTask(task._id)">Done</td>
+                <td><input type="checkbox" v-model="task.isComplete" name="" id="" @click="completeTask(task._id)">Done</td>
                 <td><button @click="deleteTask(task._id)"><i class="fa-solid fa-arrow-left"></i>Delete this task<i class="fa-solid fa-trash-can"></i></button></td>
             </tr>        
         </tbody>
         
         <h5 style="color:green">
             Progress:{{(totalDone / (taskLists.length > 0 ? taskLists.length : 1) * 100).toFixed(2)}}%
-             
         </h5>
 
         <button class="btn btn-primary"  @click="goToAddTask">Assign new task<i class="fa-solid fa-plus"></i></button>
@@ -50,12 +49,12 @@ export default{
             try {
                 await TaskService.update(id);
                 this.updateTotalDone();
-                } catch (error) {
-                    console.log(error);
-                }
+            } catch (error) {
+                console.log(error);
+            }
         },
         updateTotalDone(){
-            this.totalDone=0;
+            this.totalDone = 0;
             this.taskLists.forEach((task) => {
                 if(task.isComplete) {
                     this.totalDone++;

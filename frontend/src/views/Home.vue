@@ -18,6 +18,7 @@
 import InputSearch from "@/components/InputSearch.vue";
 import UserList from "@/components/UserList.vue";
 import UserService from "@/services/user.service";
+import TaskService from '@/services/task.service';
 export default {
     components: {
         InputSearch,
@@ -60,6 +61,15 @@ export default {
         async retrieveUsers() {
             try {
                 this.users = await UserService.getAll();
+                // get totalTask of each User
+                this.users.forEach(
+                    async (user) => {
+                        // get ListTask of User by UserID
+                        let totalTask = await TaskService.getByUserId(user._id);
+                        // khoi tao bien de truy xuat length of totalTask
+                        user.totalTask = totalTask.length;
+                    }
+                );
             } catch (error) {
                 console.log(error);
             }

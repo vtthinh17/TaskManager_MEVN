@@ -37,7 +37,6 @@ exports.update = async (req, res, next) =>{
 	try{
 		const taskService = new TaskService(MongoDB.client);
 		const document = await taskService.update(req.params.id, req.body);
-		console.log("ABC");
 		if(!document){
 			return next(new ApiError(404, "Task not found")); 
 		}

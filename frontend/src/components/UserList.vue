@@ -1,11 +1,6 @@
 <script>
-// import TaskService from '../services/task.service';
+
 export default {
-    // data() {
-    //     return {
-    //         totalTask: []
-    //     };
-    // },
     props: {
         tasks:{type: Array, default: []},
         users: { type: Array, default: [] },
@@ -16,10 +11,6 @@ export default {
         updateActiveIndex(index) {
             this.$emit("update:activeIndex", index);
         },
-        // async getTotalTasks(userId){
-        //     totalTask = await TaskService.getByUserId(userId);
-        //     return totalTask.length;
-        // },
     }
 };
 </script>
@@ -33,7 +24,7 @@ export default {
                 <th>Email</th>
                 <th>Address</th>
                 <th>Phone</th>
-                <th>Number of tasks</th>
+                <th>Total tasks</th>
             </tr>
         </thead>
         <tbody  v-for="(user, index) in users" :key="user._id" :class="{ active: index === activeIndex }"
@@ -45,8 +36,7 @@ export default {
                 <td>{{ user.address }}</td>
                 <td>{{ user.phone }}</td>
                 <td>
-                    <!-- {{getTotalTasks(user._id)}} -->
-
+                    {{user.totalTask}}
                 </td>
                 <td>
                     <router-link :to="{

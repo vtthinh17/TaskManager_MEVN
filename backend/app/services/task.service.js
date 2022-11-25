@@ -21,7 +21,7 @@ class TaskService {
         const task = this.extractTaskData(payload);
         const result = await this.Task.findOneAndUpdate(
             task,
-            { $set: { isComplete: task.isComplete, } },
+            { $set: { isComplete: task.isComplete === true, } },
             { returnDocument: "after", upsert: true }
         );
         return result.value;
@@ -33,36 +33,25 @@ class TaskService {
 	}
 
 	
-
 	async findById(id) {
 		return await this.Task.findOne({
 			_id: ObjectId.isValid(id) ? new ObjectId(id) : null,
 		});
 	}
     async findByUserId(id){
-        // console.log(id);
 		return await this.find({userId: id});
 	}
 
-	// async update (id){
-	// 	console.log('abbbbbbbbbbbbbb',id)
-	// 	const filter = {
-	// 		_id: ObjectId.isValid(id) ? new ObjectId(id) : null,
-	// 	};
-	// 	const result = await this.Task.findOneAndUpdate(
-	// 		filter,{$set : {isComplete:!isComplete}}, {returnDocument: "after"}
-	// 	);
-	// 	return result.value;
-	// }
+
 	async update (id){
-		const task = await this.Task.findOne({
+		const filter = {
 			_id: ObjectId.isValid(id) ? new ObjectId(id) : null,
-		});
-		
-		const result = await this.Task.update(
-			filter,{$set : {isComplete:true}}, {returnDocument: "after"}
+		};
+		const obj = await this.findById(id);
+		const status = !obj.isComplete;
+		const result = await this.Task.findOneAndUpdate(
+			filter,{$set : {isComplete:status}}, {returnDocument: "after"}
 		);
-		console.log(result);
 		return result.value;
 	}
 
@@ -72,10 +61,6 @@ class TaskService {
 		);
 		return result.value;
 	}
-
-	// async getTotalTask(userId){
-	// 	return await this.find({userId: id}).length;
-	// }
 
 
 }
