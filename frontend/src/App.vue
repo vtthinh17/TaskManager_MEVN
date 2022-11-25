@@ -9,7 +9,7 @@ export default {
 
 <template>
   <div id="app">
-    <div class="container">
+    <div class="container navbar-style">
       <Header />
     </div>
     
@@ -20,5 +20,8 @@ export default {
 </template>
 
 <style scoped>
-
+  #app{
+    margin: 0;
+    padding: 0;
+  }
 </style>

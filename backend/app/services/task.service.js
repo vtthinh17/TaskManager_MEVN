@@ -21,7 +21,7 @@ class TaskService {
         const task = this.extractTaskData(payload);
         const result = await this.Task.findOneAndUpdate(
             task,
-            { $set: { isComplete: task.isComplete === true, } },
+            { $set: { isComplete: task.isComplete, } },
             { returnDocument: "after", upsert: true }
         );
         return result.value;
@@ -44,16 +44,27 @@ class TaskService {
 		return await this.find({userId: id});
 	}
 
-	// async update (id, payload){
+	// async update (id){
+	// 	console.log('abbbbbbbbbbbbbb',id)
 	// 	const filter = {
 	// 		_id: ObjectId.isValid(id) ? new ObjectId(id) : null,
 	// 	};
-	// 	const update = this.extractTaskData(payload);
 	// 	const result = await this.Task.findOneAndUpdate(
-	// 		filter,{$set : update}, {returnDocument: "after"}
+	// 		filter,{$set : {isComplete:!isComplete}}, {returnDocument: "after"}
 	// 	);
 	// 	return result.value;
 	// }
+	async update (id){
+		const task = await this.Task.findOne({
+			_id: ObjectId.isValid(id) ? new ObjectId(id) : null,
+		});
+		
+		const result = await this.Task.update(
+			filter,{$set : {isComplete:true}}, {returnDocument: "after"}
+		);
+		console.log(result);
+		return result.value;
+	}
 
 	async delete (id){
 		const result = await this.Task.findOneAndDelete({
@@ -62,13 +73,10 @@ class TaskService {
 		return result.value;
 	}
 
-	// async findFavorite(){
-	// 	return await this.find({favorite: true});
+	// async getTotalTask(userId){
+	// 	return await this.find({userId: id}).length;
 	// }
 
-	// async deleteAll(){
-	// 	const result = await this.Task.deleteMany({});
-	// 	return result.deletedCount;
-	// }
+
 }
 module.exports = TaskService;

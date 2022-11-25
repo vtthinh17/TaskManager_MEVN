@@ -5,7 +5,8 @@ const router = express.Router();
 router.route("/:id")
     .get(tasks.findByUserId)
     .delete(tasks.delete)
-    // .post(tasks.create)
+    .put(tasks.update) 
+    
     
 router.route("/add")
     .post(tasks.create)

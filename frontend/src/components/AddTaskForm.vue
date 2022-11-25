@@ -23,8 +23,11 @@ export default {
     },
     methods: {
         submitTask() {
+            
             this.taskLocal.userId = this.$route.params.id;
             this.$emit('submit:addTask', this.taskLocal);
+            // clear input field
+            this.taskLocal.description ="";
         },
     }
 }

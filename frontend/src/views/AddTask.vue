@@ -1,11 +1,11 @@
 <template>
     <div class="page">
-       <h4>Thêm mới Task</h4>
+       <h4 class="headline-page">Thêm mới Task</h4>
        <AddTaskForm 
        :task="task" 
        @submit:addTask="addTask" 
        />
-       <p>{{ message }}</p>
+       <p class="message">{{ message }}</p>
    </div>
 </template>
 <script>

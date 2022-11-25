@@ -1,35 +1,63 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+/* details */
+/* margin icon */
+i{
+    margin-left: 4px;
+    margin-right: 4px;
 }
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+.message{
+    margin-top: 20px;
+    font-weight: 600;
+    color: red;
+    text-align: center;
+    text-transform: uppercase;
 }
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.link{
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bolder;
 }
-
-@media (min-width: 1024px) {
-  body {
+/* body */
+body{
+    background-color: #f0f8fd;
+}
+/* Header navbar */
+.navbar-style{
+    background-color:  #5161ce;
+}
+.navbar-style a{
+    font-weight: bold;
+    text-decoration: none;
+    color: yellow;
+}
+/* Search bar */
+/* .search-bar{
+    width: 50px
+} */
+/* Tieu de page */
+.headline-page{
+    color: blue;
+    text-align: center;
+    text-transform: uppercase;
+}
+/* table */
+table{
+    text-align: center;
+    font-weight: 550;
+}
+table thead>tr{
+    color: yellow;
+    background-color: #5161ce;
+}
+/* Form Add task */
+form{
     display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+    justify-content: center;
+    
+}
+form label{
+    font-size: 1.6rem;
+    margin-right:6px;
+}
+form button{
+    
 }

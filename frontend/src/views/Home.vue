@@ -1,12 +1,12 @@
 <template>
     <div class="page row">
-        <div class="col-md-10">
+        <div >
             <InputSearch v-model="searchText" />
         </div>
-        <div class="mt-3 col-md-6">
-            <h4>
+        <div class="mt-3">
+            <h4 class="headline-page">
                 Danh sách user
-                <i class="fas fa-address-book"></i>
+                <i class="fa-sharp fa-solid fa-users"></i>
             </h4>
             <UserList v-if="filteredUsersCount > 0" :users="filteredUsers" v-model:activeIndex="activeIndex" />
             <p style="color:red" v-else>Không có User nào.</p>

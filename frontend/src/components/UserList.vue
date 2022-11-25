@@ -1,6 +1,13 @@
 <script>
+// import TaskService from '../services/task.service';
 export default {
+    // data() {
+    //     return {
+    //         totalTask: []
+    //     };
+    // },
     props: {
+        tasks:{type: Array, default: []},
         users: { type: Array, default: [] },
         activeIndex: { type: Number, default: -1 },
     },
@@ -8,7 +15,11 @@ export default {
     methods: {
         updateActiveIndex(index) {
             this.$emit("update:activeIndex", index);
-        }
+        },
+        // async getTotalTasks(userId){
+        //     totalTask = await TaskService.getByUserId(userId);
+        //     return totalTask.length;
+        // },
     }
 };
 </script>
@@ -34,15 +45,16 @@ export default {
                 <td>{{ user.address }}</td>
                 <td>{{ user.phone }}</td>
                 <td>
-                  
+                    <!-- {{getTotalTasks(user._id)}} -->
+
                 </td>
                 <td>
                     <router-link :to="{
                         name: 'user.task',
                         params: { id: user._id },
-                    }">
+                    }" class="link">
                         <span >
-                            <i class="fas fa-edit"></i> Xem tasks</span>
+                            <i class="fa-solid fa-list-check"></i>Xem tasks</span>
                     </router-link>
 
                 </td>
