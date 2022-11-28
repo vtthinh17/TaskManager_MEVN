@@ -6,7 +6,6 @@
                 <th>Decriptions</th>
                 <th>Status</th>
                 <th>Delete?</th>
-
             </tr>
         </thead>
 
@@ -16,8 +15,9 @@
                 <td>{{ task.description }}</td>
                 <td><input type="checkbox" v-model="task.isComplete" name="" id="" @click="completeTask(task._id)">Done
                 </td>
-                <td><button @click="deleteTask(task._id)"><i class="fa-solid fa-arrow-left"></i>Delete this task<i
-                            class="fa-solid fa-trash-can"></i></button></td>
+                <td>
+                    <button @click="deleteTask(task._id)" type="button" class="btn btn-danger"><i class="fa-solid fa-arrow-left"></i>Delete this task<i class="fa-solid fa-trash-can"></i></button>
+                </td>
             </tr>
         </tbody>
 

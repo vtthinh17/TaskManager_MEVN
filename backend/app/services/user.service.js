@@ -8,10 +8,9 @@ class UserService {
     extractUserData(payload) {
         const user = {
             name: payload.name,
-			email: payload.price,
+			email: payload.email,
 			address:payload.address,
 			phone: payload.phone,
-            favorite: payload.favorite,
         };
         // Remove undefined fields
         Object.keys(user).forEach(
@@ -21,9 +20,10 @@ class UserService {
     }
     async create(payload) {
         const user = this.extractUserData(payload);
+        console.log(user);
         const result = await this.User.findOneAndUpdate(
             user,
-            { $set: { favorite: user.favorite === true } },
+            {$set: {}},
             { returnDocument: "after", upsert: true }
         );
         return result.value;

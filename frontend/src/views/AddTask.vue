@@ -9,7 +9,6 @@
 import AddTaskForm from "@/components/AddTaskForm.vue";
 import TaskService from "./../services/task.service";
 export default {
-   // Dang ky component de su dung tren template
    components: {
     AddTaskForm,
    },

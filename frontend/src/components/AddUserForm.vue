@@ -5,8 +5,8 @@
             <input type="text" name="name" id="name" v-model="userLocal.name" >
         </div>
         <div class="form-group">
-            <label for="email" >Email :</label>
-            <input type="text" name="email" id="email" v-model="userLocal.email" >
+            <label for="email">E-mail</label>
+            <input type="text" name="email" id="email" v-model="userLocal.email">
         </div>
         <div class="form-group">
             <label for="address" >Địa chỉ :</label>
@@ -16,7 +16,6 @@
             <label for="phone" >Phone</label>
             <input type="text" name="phone" id="phone" v-model="userLocal.phone">
         </div>
-
         <div class="form-group">
             <button @click="submitUser" type="button" class="btn btn-primary">Thêm mới <i class="fa-solid fa-plus"></i></button>
         </div>
@@ -39,8 +38,8 @@ export default {
             this.$emit("submit:addUser", this.userLocal);
             // clear input field
             this.userLocal.name="";
-            this.userLocal.address="";
             this.userLocal.email="";
+            this.userLocal.address="";
             this.userLocal.phone="";
         },
     }

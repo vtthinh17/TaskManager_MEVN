@@ -1,8 +1,8 @@
 <template>
     <form>
         <div class="form-group">
-            <label for="description" >Mô tả :</label>
-            <input type="text" name="description" id="description" v-model="taskLocal.description" placeholder="&#xF044 What to do">
+            <label for="description" >Mô tả công việc :</label>
+            <input type="text" name="description" id="description" v-model="taskLocal.description" placeholder="What to do?">
         </div>
         <div class="form-group">
             <button @click="submitTask" type="button" class="btn btn-primary">Thêm mới <i class="fa-solid fa-plus"></i></button>

@@ -11,13 +11,11 @@ i{
     text-align: center;
     text-transform: uppercase;
 }
-.fa-trash-can{
-    color: red;
-}
+/* routerlink */
 .link{
     text-decoration: none;
     font-size: 1rem;
-    font-weight: bolder;
+    /* font-weight: bolder; */
 }
 /* body */
 body{
@@ -25,7 +23,8 @@ body{
 }
 /* Header navbar */
 .navbar-style{
-    background-color:  #5161ce;
+    /* background-color:  #5161ce; */
+    background-color:  grey;
 }
 .navbar-style a{
     font-weight: bold;

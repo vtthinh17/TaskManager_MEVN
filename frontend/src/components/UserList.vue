@@ -40,11 +40,11 @@ export default {
                 <th>Address</th>
                 <th>Phone</th>
                 <th>Total tasks</th>
-                
+                <th></th>
+                <th></th>
             </tr>
         </thead>
-        <tbody  v-for="(user, index) in users" :key="user._id" 
-            >
+        <tbody  v-for="(user, index) in users" :key="user._id">
             <tr>
                 <td>{{ index + 1 }}</td>
                 <td>{{ user.name }}</td>
@@ -59,13 +59,11 @@ export default {
                         name: 'user.task',
                         params: { id: user._id },
                     }" class="link">
-                        <span >
-                            <i class="fa-solid fa-list-check"></i>Xem tasks
-                        </span>
+                        <button type="button" class="btn btn-primary"><i class="fa-solid fa-list-check"></i>Xem tasks</button>           
                     </router-link>
                 </td>
                 <td @click="deleteUser(user._id)">
-                    <i class="fa-solid fa-trash-can"></i>Xóa user 
+                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>Xóa user </button>                              
                 </td>
             </tr>
         </tbody>
