@@ -3,7 +3,7 @@
        <h4 class="headline-page">Thêm mới User</h4>
        <AddUserForm 
        :user="user" 
-       @submit:user="addUser" 
+       @submit:addUser="addUser" 
        />
        <p class="message">{{ message }}</p>
    </div>
@@ -12,7 +12,6 @@
 import AddUserForm from "@/components/AddUserForm.vue";
 import UserService from "./../services/user.service";
 export default {
-   // Dang ky component de su dung tren template
    components: {
        AddUserForm,
    },

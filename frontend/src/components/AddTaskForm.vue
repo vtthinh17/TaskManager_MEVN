@@ -1,6 +1,6 @@
 <template>
     <form>
-        <div class="form-group" method="post">
+        <div class="form-group">
             <label for="description" >Mô tả :</label>
             <input type="text" name="description" id="description" v-model="taskLocal.description" placeholder="&#xF044 What to do">
         </div>
@@ -22,8 +22,7 @@ export default {
             }
     },
     methods: {
-        submitTask() {
-            
+        submitTask() {          
             this.taskLocal.userId = this.$route.params.id;
             this.$emit('submit:addTask', this.taskLocal);
             // clear input field

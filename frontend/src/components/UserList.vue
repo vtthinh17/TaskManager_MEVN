@@ -1,22 +1,23 @@
 <script>
 import UserService from '../services/user.service';
+import TaskService from '../services/task.service';
 export default {
     props: {
         tasks:{type: Array, default: []},
         users: { type: Array, default: [] },
-        activeIndex: { type: Number, default: -1 },
     },
-    emits: ["update:activeIndex"],  
+    emits: ["delete:user"],
     methods: {
-        updateActiveIndex(index) {
-            this.$emit("update:activeIndex", index);
-        },
         async deleteUser(id) {
             console.log('Delete user:',id);
-            if (confirm("Bạn muốn xóa Liên hệ này?")) {
+            if (confirm("Bạn muốn xóa người này ra khỏi danh sách?")) {
                 try {
                     await UserService.delete(id);
-                    this.$router.push({ name: "home" });
+                    let listTaskOfUser = await TaskService.getByUserId(id);
+                    listTaskOfUser.forEach(async task => {
+                        await TaskService.delete(task._id);
+                    });
+                    this.$emit("delete:user");
                 } catch (error) {
                     console.log(error);
                 }
@@ -25,7 +26,7 @@ export default {
         goToAddContact() {
             this.$router.push({ name: "contact.add" });
         },
-    }
+    },
 };
 </script>
 
@@ -42,8 +43,8 @@ export default {
                 
             </tr>
         </thead>
-        <tbody  v-for="(user, index) in users" :key="user._id" :class="{ active: index === activeIndex }"
-            @click="updateActiveIndex(index)">
+        <tbody  v-for="(user, index) in users" :key="user._id" 
+            >
             <tr>
                 <td>{{ index + 1 }}</td>
                 <td>{{ user.name }}</td>

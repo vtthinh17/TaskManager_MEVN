@@ -1,10 +1,7 @@
 <template>
     <div class="page">
        <h4 class="headline-page">Thêm mới Task</h4>
-       <AddTaskForm 
-       :task="task" 
-       @submit:addTask="addTask" 
-       />
+       <AddTaskForm :task="task" @submit:addTask="addTask"/>
        <p class="message">{{ message }}</p>
    </div>
 </template>
@@ -22,6 +19,7 @@ export default {
            message: "",
        };
    },
+   emits: ["submit:addTask"],
    methods: {
        async addTask(data) {
            try {

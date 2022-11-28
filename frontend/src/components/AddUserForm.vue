@@ -1,18 +1,18 @@
 <template>
     <form>
-        <div class="form-group" method="post">
+        <div class="form-group" >
             <label for="name" >Tên :</label>
             <input type="text" name="name" id="name" v-model="userLocal.name" >
         </div>
-        <div class="form-group" method="post">
+        <div class="form-group">
             <label for="email" >Email :</label>
             <input type="text" name="email" id="email" v-model="userLocal.email" >
         </div>
-        <div class="form-group" method="post">
+        <div class="form-group">
             <label for="address" >Địa chỉ :</label>
             <input type="text" name="address" id="address" v-model="userLocal.address">
         </div>
-        <div class="form-group" method="post">
+        <div class="form-group" >
             <label for="phone" >Phone</label>
             <input type="text" name="phone" id="phone" v-model="userLocal.phone">
         </div>
@@ -36,7 +36,12 @@ export default {
     },
     methods: {
         submitUser() {          
-            this.$emit("submit:user", this.userLocal);
+            this.$emit("submit:addUser", this.userLocal);
+            // clear input field
+            this.userLocal.name="";
+            this.userLocal.address="";
+            this.userLocal.email="";
+            this.userLocal.phone="";
         },
     }
 }

@@ -1,8 +1,6 @@
 <template>
    <h4 class="headline-page">List Tasks of User</h4>
-
-    <TaskList/>
-     
+    <TaskList/>  
 </template>
 
 <script>

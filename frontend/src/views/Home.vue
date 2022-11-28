@@ -8,7 +8,7 @@
                 Danh sách user
                 <i class="fa-sharp fa-solid fa-users"></i>
             </h4>
-            <UserList v-if="filteredUsersCount > 0" :users="filteredUsers" v-model:activeIndex="activeIndex" />
+            <UserList v-if="filteredUsersCount > 0" :users="filteredUsers" @delete:user="refreshList()"/>
             <p style="color:red" v-else>Không có User nào.</p>
         </div>
         
@@ -19,9 +19,6 @@
                 <button class="btn btn-sm btn-success" @click="goToAddUser()">
                     <i class="fas fa-plus"></i> Thêm mới
                 </button>
-                <!-- <button class="btn btn-sm btn-danger" @click="removeAllContacts">
-                    <i class="fas fa-trash"></i> Xóa tất cả
-                </button> -->
         </div>
 
     </div>
@@ -40,7 +37,6 @@ export default {
     data() {
         return {
             users: [],
-            activeIndex: -1,
             searchText: "",
         };
     },
@@ -61,10 +57,6 @@ export default {
             return this.users.filter((_user, index) =>
                 this.userStrings[index].includes(this.searchText)
             );
-        },
-        activeContact() {
-            if (this.activeIndex < 0) return null;
-            return this.filteredUsers[this.activeIndex];
         },
         filteredUsersCount() {
             return this.filteredUsers.length;
@@ -90,16 +82,6 @@ export default {
         refreshList() {
             this.retrieveUsers();
             // this.activeIndex = -1;
-        },
-        async removeAllUsers() {
-            if (confirm("Bạn muốn xóa tất cả Liên hệ?")) {
-                try {
-                    await UserService.deleteAll();
-                    this.refreshList();
-                } catch (error) {
-                    console.log(error);
-                }
-            }
         },
         goToAddUser() {
             this.$router.push({ name: "user.add" });
