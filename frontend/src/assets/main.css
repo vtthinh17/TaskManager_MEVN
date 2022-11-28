@@ -11,6 +11,9 @@ i{
     text-align: center;
     text-transform: uppercase;
 }
+.fa-trash-can{
+    color: red;
+}
 .link{
     text-decoration: none;
     font-size: 1rem;

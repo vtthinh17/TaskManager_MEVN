@@ -11,6 +11,19 @@
             <UserList v-if="filteredUsersCount > 0" :users="filteredUsers" v-model:activeIndex="activeIndex" />
             <p style="color:red" v-else>Không có User nào.</p>
         </div>
+        
+        <div class="mt-3 row justify-content-around align-items-center">
+                <button class="btn btn-sm btn-primary" @click="refreshList()">
+                    <i class="fas fa-redo"></i> Làm mới
+                </button>
+                <button class="btn btn-sm btn-success" @click="goToAddUser()">
+                    <i class="fas fa-plus"></i> Thêm mới
+                </button>
+                <!-- <button class="btn btn-sm btn-danger" @click="removeAllContacts">
+                    <i class="fas fa-trash"></i> Xóa tất cả
+                </button> -->
+        </div>
+
     </div>
 </template>
 
@@ -76,7 +89,7 @@ export default {
         },
         refreshList() {
             this.retrieveUsers();
-            this.activeIndex = -1;
+            // this.activeIndex = -1;
         },
         async removeAllUsers() {
             if (confirm("Bạn muốn xóa tất cả Liên hệ?")) {
@@ -88,7 +101,7 @@ export default {
                 }
             }
         },
-        goToAddContact() {
+        goToAddUser() {
             this.$router.push({ name: "user.add" });
         },
     },

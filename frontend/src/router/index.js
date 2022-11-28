@@ -7,6 +7,12 @@ const routes = [
         component: Home,
     },
     {
+        path: "/users/add",
+        name: "user.add",
+        component: () => import("@/views/AddUser.vue"),
+        props: true 
+    },
+    {
         path: "/:id/tasks",
         name: "user.task",
         component: () => import("@/views/UserTask.vue"),
