@@ -5,11 +5,10 @@
         </div>
         <div class="mt-3">
             <h4 class="headline-page">
-                Danh sách user
-                <i class="fa-sharp fa-solid fa-users"></i>
+                <span class="title">Danh sách user<i class="fa-sharp fa-solid fa-users"></i></span>
             </h4>
             <UserList v-if="filteredUsersCount > 0" :users="filteredUsers" @delete:user="refreshList()"/>
-            <p style="color:red" v-else>Không có User nào.</p>
+            <p class="message" v-else>Không có User nào.</p>
         </div>
         
         <div class="mt-3 row justify-content-around align-items-center">

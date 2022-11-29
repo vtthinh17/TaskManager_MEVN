@@ -18,37 +18,47 @@ i{
     /* font-weight: bolder; */
 }
 /* body */
-body{
-    background-color: #f0f8fd;
-}
 /* Header navbar */
 .navbar-style{
     /* background-color:  #5161ce; */
-    background-color:  grey;
+    background-color:  rgb(200, 192, 192);
 }
 .navbar-style a{
     font-weight: bold;
     text-decoration: none;
-    color: yellow;
+    color: black;
+}
+nav a:hover{
+    opacity: 0.6;
+    font-size:17px;
 }
 /* Search bar */
 /* .search-bar{
     width: 50px
 } */
+.title{
+    border: 2px solid black;
+    padding: 0.4rem;
+    border-radius: 4px;
+}
 /* Tieu de page */
 .headline-page{
-    color: blue;
     text-align: center;
     text-transform: uppercase;
 }
 /* table */
 table{
+    margin-top: 1.6em;
     text-align: center;
     font-weight: 550;
 }
+/* cot tieu de bang */
 table thead>tr{
-    color: yellow;
-    background-color: #5161ce;
+    color: black;
+    background-color: rgb(216, 211, 211);
+}
+table td{
+    margin-top: 4px;
 }
 /* Form Add task */
 form{
@@ -56,10 +66,21 @@ form{
     justify-content: center;
     
 }
+form input{
+    width: 19rem;
+}
+fieldset{
+    border: solid 1px #ccc;
+    border-radius: 6px;
+    margin: 2em 0;
+    padding: 1em 2em;
+}
+.form-group{
+    margin: 1.4em;
+    display:flex;
+    justify-content: center;
+}
 form label{
     font-size: 1.6rem;
-    margin-right:6px;
-}
-form button{
-    
+    margin-right:16px;
 }

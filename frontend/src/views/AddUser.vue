@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-       <h4 class="headline-page">Thêm mới User</h4>
+       <h4 class="headline-page"><span class="title">Add User Form<i class="fa-solid fa-file-pen"></i></span></h4>
        <AddUserForm 
        :user="user" 
        @submit:addUser="addUser" 

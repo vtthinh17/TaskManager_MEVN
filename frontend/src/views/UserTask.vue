@@ -1,5 +1,5 @@
 <template>
-   <h4 class="headline-page">List Tasks of User</h4>
+   <h4 class="headline-page"><span class="title">List Tasks of User</span></h4>
     <TaskList/>  
 </template>
 

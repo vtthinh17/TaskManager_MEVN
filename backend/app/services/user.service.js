@@ -20,7 +20,6 @@ class UserService {
     }
     async create(payload) {
         const user = this.extractUserData(payload);
-        console.log(user);
         const result = await this.User.findOneAndUpdate(
             user,
             {$set: {}},

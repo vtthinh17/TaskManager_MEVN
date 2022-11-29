@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-       <h4 class="headline-page">Thêm mới Task</h4>
+       <h4 class="headline-page"><span class="title">Add Task Form <i class="fa-solid fa-file-pen"></i></span></h4>
        <AddTaskForm :task="task" @submit:addTask="addTask"/>
        <p class="message">{{ message }}</p>
    </div>
